@@ -1,0 +1,85 @@
+<div class="mx-auto mt-10 max-w-7xl sm:px-8">
+  <div
+    class="mx-4 flex flex-col space-y-4 sm:mx-0 sm:flex-row sm:items-center sm:space-y-0"
+  >
+    <div class="flex-1">
+      <div
+        class="flex divide-x overflow-hidden rounded-xl border sm:max-w-sm"
+        role="tablist"
+        aria-orientation="horizontal"
+      >
+        <button
+          class="inline-block w-full cursor-pointer px-2 py-2 text-center text-sm"
+          id="headlessui-tabs-tab-2"
+          role="tab"
+          type="button"
+          aria-selected="true"
+          tabindex="0"
+          aria-controls="headlessui-tabs-panel-5"
+        >
+          Roster
+        </button>
+        <button
+          class="inline-block w-full cursor-pointer px-2 py-2 text-center text-sm"
+          id="headlessui-tabs-tab-3"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          tabindex="-1"
+        >
+          Availability
+        </button>
+        <button
+          class="inline-block w-full cursor-pointer px-2 py-2 text-center text-sm"
+          id="headlessui-tabs-tab-4"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          tabindex="-1"
+        >
+          Leave
+        </button>
+      </div>
+    </div>
+    <div class="sm:ml-4">
+      <div class="flex items-center space-x-8 rounded-2xl border px-4 py-1">
+        <button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            aria-hidden="true"
+            class="h-6 w-6 text-gray-500"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 19l-7-7 7-7"
+            ></path>
+          </svg>
+        </button>
+        <div class="w-full text-center text-sm">This week</div>
+        <button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            aria-hidden="true"
+            class="h-6 w-6 text-gray-500"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <app-reusable-calendar></app-reusable-calendar>
+</div>

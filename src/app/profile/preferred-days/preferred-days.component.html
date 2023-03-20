@@ -1,0 +1,19 @@
+<div class="flex flex-col items-start space-y-2">
+  <label>Select your preferred days</label>
+  <ul class="inline-flex flex-wrap divide-x overflow-hidden rounded-lg border">
+    <li
+      *ngFor="let day of preferredDays"
+      value="day"
+      (click)="handleKeyDown($event)"
+      [ngClass]="{
+        'bg-button': chooseDays.includes(day),
+        'text-white': chooseDays.includes(day)
+      }"
+    >
+      <a
+        class="inline-block min-w-[40px] cursor-pointer px-2 py-2 text-center text-sm false"
+        >{{ day }}</a
+      >
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,323 @@
+<nav class="bg-gray-800 px-2 sm:px-8 dark:bg-gray-900">
+  <div
+    class="container flex flex-wrap items-center justify-between mx-auto relative"
+  >
+    <a class="flex items-center" href="profile">
+      <img
+        src="https://optimize-portal.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.71ef5d46.png&w=384&q=75"
+        class="h-6 py-0.5 sm:h-9"
+        alt="Optimize Logo"
+      />
+    </a>
+
+    <div class="inline-flex items-center md:order-2">
+      <!-- Btn Notification  -->
+      <button
+        id="dropdownNotificationButton"
+        data-dropdown-toggle="dropdownNotification"
+        class="inline-flex items-center text-sm font-medium text-center text-white focus:text-gray-400"
+        type="button"
+      >
+        <svg
+          class="w-6 h-6"
+          aria-hidden="true"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"
+          ></path>
+        </svg>
+        <div class="relative flex">
+          <div
+            class="relative inline-flex w-3 h-3 bg-green-600 border-2 border-white rounded-full -top-2 right-3"
+          ></div>
+        </div>
+      </button>
+
+      <!-- Btn User menu -->
+      <button
+        (click)="handleDropdown()"
+        type="button"
+        class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600"
+        id="user-menu-button"
+        aria-expanded="false"
+        data-dropdown-toggle="user-dropdown"
+        data-dropdown-placement="bottom"
+      >
+        <span class="sr-only">Open user menu</span>
+        <img
+          class="w-8 h-8 rounded-full"
+          src="https://avatars.githubusercontent.com/u/3035985?v=4"
+          alt="user photo"
+        />
+      </button>
+      <!-- Dropdown menu -->
+      <div
+        *ngIf="isDropdownOpen"
+        class="z-50 absolute right-0 top-14 my-4 text-base list-none bg-white divide-y divide-gray-200 rounded-lg shadow-lg"
+        id="user-dropdown"
+      >
+        <div class="px-4 py-3">
+          <span class="block text-sm text-gray-900 dark:text-white"
+            >Selina</span
+          >
+          <span
+            class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400"
+            >selina@optimize.com</span
+          >
+        </div>
+        <div class="flex">
+          <button
+            class="text-gray-900 group flex w-full items-center px-2 py-2 text-sm hover:bg-gray-200"
+            (click)="onLogout()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              aria-hidden="true"
+              class="mr-2 h-5 w-5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+              ></path>
+            </svg>
+            <a class="block px-4 py-2 text-sm text-gray-700">Logout</a>
+          </button>
+        </div>
+      </div>
+      <button
+        data-collapse-toggle="mobile-menu-2"
+        type="button"
+        class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        aria-controls="mobile-menu-2"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open main menu</span>
+        <svg
+          class="w-6 h-6"
+          aria-hidden="true"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menu -->
+    <div
+      class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+      id="mobile-menu-2"
+    >
+      <ul
+        class="flex flex-col mt-4 border-gray-100 bg-gray-800 text-white md:flex-row md:space-x-8 md:mt-0 md:text-md md:font-medium"
+      >
+        <li>
+          <div
+            class="flex h-[66px] items-center border-b-2 px-4 border-navbar font-medium tracking-wide md:hover:border-custom-orange text-custom-orange"
+          >
+            <a
+              routerLink="profile"
+              routerLinkActive="active"
+              class="flex py-2 pl-3 pr-4 text-white rounded md:hover:bg-transparent md:border-0 md:focus:text-custom-orange md:hover:text-custom-orange md:p-0 focus:border-custom-orange"
+            >
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                class="mr-2 text-2xl"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M332.64 64.58C313.18 43.57 286 32 256 32c-30.16 0-57.43 11.5-76.8 32.38-19.58 21.11-29.12 49.8-26.88 80.78C156.76 206.28 203.27 256 256 256s99.16-49.71 103.67-110.82c2.27-30.7-7.33-59.33-27.03-80.6zM432 480H80a31 31 0 01-24.2-11.13c-6.5-7.77-9.12-18.38-7.18-29.11C57.06 392.94 83.4 353.61 124.8 326c36.78-24.51 83.37-38 131.2-38s94.42 13.5 131.2 38c41.4 27.6 67.74 66.93 76.18 113.75 1.94 10.73-.68 21.34-7.18 29.11A31 31 0 01432 480z"
+                ></path>
+              </svg>
+              Profile</a
+            >
+          </div>
+        </li>
+        <li>
+          <div
+            class="flex h-[66px] items-center border-b-2 px-4 border-navbar font-medium tracking-wide md:hover:border-custom-orange text-custom-orange"
+          >
+            <a
+              routerLink="calendar"
+              routerLinkActive="active"
+              class="flex py-2 pl-3 pr-4 text-white rounded md:hover:bg-transparent md:border-0 md:focus:text-custom-orange md:hover:text-custom-orange md:p-0 focus:border-custom-orange"
+            >
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                class="mr-2 text-2xl"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M480 128a64 64 0 00-64-64h-16V48.45c0-8.61-6.62-16-15.23-16.43A16 16 0 00368 48v16H144V48.45c0-8.61-6.62-16-15.23-16.43A16 16 0 00112 48v16H96a64 64 0 00-64 64v12a4 4 0 004 4h440a4 4 0 004-4zM32 416a64 64 0 0064 64h320a64 64 0 0064-64V179a3 3 0 00-3-3H35a3 3 0 00-3 3zm344-208a24 24 0 11-24 24 24 24 0 0124-24zm0 80a24 24 0 11-24 24 24 24 0 0124-24zm-80-80a24 24 0 11-24 24 24 24 0 0124-24zm0 80a24 24 0 11-24 24 24 24 0 0124-24zm0 80a24 24 0 11-24 24 24 24 0 0124-24zm-80-80a24 24 0 11-24 24 24 24 0 0124-24zm0 80a24 24 0 11-24 24 24 24 0 0124-24zm-80-80a24 24 0 11-24 24 24 24 0 0124-24zm0 80a24 24 0 11-24 24 24 24 0 0124-24z"
+                ></path>
+              </svg>
+              Calendar
+            </a>
+          </div>
+        </li>
+        <li>
+          <div
+            class="flex h-[66px] items-center border-b-2 px-4 border-navbar font-medium tracking-wide md:hover:border-custom-orange text-custom-orange"
+          >
+            <a
+              routerLink="shiftOffers"
+              routerLinkActive="active"
+              class="flex py-2 pl-3 pr-4 text-white rounded md:hover:bg-transparent md:border-0 md:focus:text-custom-orange md:hover:text-custom-orange md:p-0 focus:border-custom-orange"
+            >
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 640 512"
+                class="mr-2 text-2xl"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M496 224c-79.59 0-144 64.41-144 144s64.41 144 144 144 144-64.41 144-144-64.41-144-144-144zm64 150.29c0 5.34-4.37 9.71-9.71 9.71h-60.57c-5.34 0-9.71-4.37-9.71-9.71v-76.57c0-5.34 4.37-9.71 9.71-9.71h12.57c5.34 0 9.71 4.37 9.71 9.71V352h38.29c5.34 0 9.71 4.37 9.71 9.71v12.58zM496 192c5.4 0 10.72.33 16 .81V144c0-25.6-22.4-48-48-48h-80V48c0-25.6-22.4-48-48-48H176c-25.6 0-48 22.4-48 48v48H48c-25.6 0-48 22.4-48 48v80h395.12c28.6-20.09 63.35-32 100.88-32zM320 96H192V64h128v32zm6.82 224H208c-8.84 0-16-7.16-16-16v-48H0v144c0 25.6 22.4 48 48 48h291.43C327.1 423.96 320 396.82 320 368c0-16.66 2.48-32.72 6.82-48z"
+                ></path>
+              </svg>
+              Shift Offers
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Dropdown menu -->
+  <div
+    id="dropdownNotification"
+    class="z-20 hidden w-full max-w-sm bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-800 dark:divide-gray-700"
+    aria-labelledby="dropdownNotificationButton"
+  >
+    <div
+      class="block px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg bg-gray-50 dark:bg-gray-800 dark:text-white"
+    >
+      Notifications
+    </div>
+    <div class="divide-y divide-gray-100 dark:divide-gray-700">
+      <a class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+        <div class="flex-shrink-0">
+          <img
+            class="rounded-full w-11 h-11"
+            src="/docs/images/people/profile-picture-1.jpg"
+            alt="Jese image"
+          />
+          <div
+            class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-blue-600 border border-white rounded-full dark:border-gray-800"
+          >
+            <svg
+              class="w-3 h-3 text-white"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"
+              ></path>
+              <path
+                d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        <div class="w-full pl-3">
+          <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">
+            New message from
+            <span class="font-semibold text-gray-900 dark:text-white"
+              >Jese Leos</span
+            >: "Hey, what's up? All set for the presentation?"
+          </div>
+          <div class="text-xs text-blue-600 dark:text-blue-500">
+            a few moments ago
+          </div>
+        </div>
+      </a>
+      <a class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+        <div class="flex-shrink-0">
+          <img
+            class="rounded-full w-11 h-11"
+            src="/docs/images/people/profile-picture-2.jpg"
+            alt="Joseph image"
+          />
+          <div
+            class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-gray-900 border border-white rounded-full dark:border-gray-800"
+          >
+            <svg
+              class="w-3 h-3 text-white"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        <div class="w-full pl-3">
+          <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">
+            <span class="font-semibold text-gray-900 dark:text-white"
+              >Joseph Mcfall</span
+            >
+            and
+            <span class="font-medium text-gray-900 dark:text-white"
+              >5 others</span
+            >
+            started following you.
+          </div>
+          <div class="text-xs text-blue-600 dark:text-blue-500">
+            10 minutes ago
+          </div>
+        </div>
+      </a>
+      <a
+        class="block py-2 text-sm font-medium text-center text-gray-900 rounded-b-lg bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white"
+      >
+        <div class="inline-flex items-center">
+          <svg
+            class="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+            <path
+              fill-rule="evenodd"
+              d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          View all
+        </div>
+      </a>
+    </div>
+  </div>
+</nav>

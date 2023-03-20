@@ -1,0 +1,246 @@
+<div class="mx-8 max-w-4xl lg:mx-auto">
+  <div
+    class="my-10 flex flex-col space-x-0 md:flex-row md:space-x-12 justify-center"
+  >
+    <div class="mb-4 flex flex-col items-center">
+      <div
+        class="w-[140px] h-[140px] leading-10 rounded-full text-[100%]"
+      >
+        <img
+          src="https://avatars.githubusercontent.com/u/3035985?v=4"
+          class="w-80"
+        />
+      </div>
+      <h3 class="mt-4 text-center text-xl font-bold">Selina Nguyễn</h3>
+      <p class="text-center text-sm text-[#7e8890]">DC - Sydney</p>
+    </div>
+
+    <div class="flex-1">
+      <form
+        action="#"
+        class="mr-4 ml-4"
+        [formGroup]="formProfile"
+        (submit)="submit()"
+      >
+        <div class="border border-gray-300 rounded-lg p-4">
+          <h3 class="mb-4 text-center text-lg font-bold">PROFILE</h3>
+          <div class="grid gap-6 mb-6 md:grid-cols-2">
+            <div>
+              <label
+                for="firstName"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >First name</label
+              >
+              <input
+                type="text"
+                name="firstName"
+                id="firstName"
+                formControlName="firstName"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none leading-tight focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="First Name"
+              />
+              <div
+                class="pt-1 text-sm text-red-500"
+                *ngIf="firstName?.touched && firstName?.invalid"
+              >
+                This field is required
+              </div>
+            </div>
+            <div>
+              <label
+                for="lastName"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Last name</label
+              >
+              <input
+                type="text"
+                id="lastName"
+                formControlName="lastName"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none leading-tight focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="Last Name"
+              />
+              <div
+                class="pt-1 text-sm text-red-500"
+                *ngIf="lastName?.touched && lastName?.invalid"
+              >
+                This field is required
+              </div>
+            </div>
+            <div>
+              <label
+                for="id"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >ID</label
+              >
+              <input
+                type="text"
+                id="id"
+                formControlName="id"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none leading-tight focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="ID"
+              />
+              <div
+                class="pt-1 text-sm text-red-500"
+                *ngIf="id?.touched && id?.invalid"
+              >
+                This field is required
+              </div>
+            </div>
+            <div>
+              <label
+                for="position"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Position</label
+              >
+              <input
+                type="position"
+                id="position"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none leading-tight focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="Position"
+                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+              />
+            </div>
+          </div>
+          <div class="mb-6">
+            <label
+              for="email"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Email</label
+            >
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none leading-tight focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder="selina@optimize.com"
+            />
+            <div
+              class="pt-1 text-sm text-red-500"
+              *ngIf="email?.touched && email?.invalid"
+            >
+              This field is required
+            </div>
+          </div>
+          <div class="mb-6">
+            <label
+              for="phone"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Phone</label
+            >
+            <input
+              type="phone"
+              id="phone"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none leading-tight focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder="123-45-678"
+            />
+          </div>
+        </div>
+
+        <!-- Checkbox -->
+        <div class="border border-gray-300 rounded-md pt-4 pl-4 mt-4 mb-4">
+          <div class="flex items-start mb-6">
+            <div class="flex items-center h-5">
+              <input
+                id="earlyStart"
+                type="checkbox"
+                class="w-4 h-4 cursor-pointer border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+              />
+            </div>
+            <label
+              for="earlyStart"
+              class="ml-2 text-sm text-gray-900 dark:text-gray-300"
+            >
+              Available for Early Start (Prior to contracted start time)
+            </label>
+          </div>
+          <div class="flex items-start mb-6">
+            <div class="flex items-center h-5">
+              <input
+                id="lateFinishes"
+                type="checkbox"
+                class="w-4 h-4 cursor-pointer border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+              />
+            </div>
+            <label
+              for="lateFinishes"
+              class="ml-2 text-sm text-gray-900 dark:text-gray-300"
+            >
+              Available for Late Finishes (After contracted finish time)
+            </label>
+          </div>
+          <div class="flex items-start mb-6">
+            <div class="flex items-center h-5">
+              <input
+                id="addShift"
+                type="checkbox"
+                class="w-4 h-4 cursor-pointer border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                (click)="handleAddShift()"
+              />
+            </div>
+            <label
+              for="addShift"
+              class="ml-2 text-sm text-gray-900 dark:text-gray-300"
+            >
+              Available for Additional Shift (Days and Times)
+            </label>
+          </div>
+          <div class="space-y-4 md:px-6" [ngClass]="{ hidden: isAddShift }">
+            
+            <app-preferred-days></app-preferred-days>
+            
+            <div class="flex flex-col items-start space-y-2">
+              <label>Select your available time range</label>
+              <div class="inline-flex items-center space-x-4">
+                <div class="max-w-[120px]">
+                  <div class="my-4">
+                    <label
+                      for="start_time"
+                      class="block text-sm font-medium text-gray-700"
+                    >
+                      Start time
+                    </label>
+                    <div class="mt-1">
+                      <input
+                        type="time"
+                        id="start_time"
+                        name="start_time"
+                        class="form-time-picker block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <span class="mt-6">to</span>
+                <div class="max-w-[120px]">
+                  <div class="my-4">
+                    <label
+                      for="End_time"
+                      class="block text-sm font-medium text-gray-700"
+                    >
+                      End time
+                    </label>
+                    <div class="mt-1">
+                      <input
+                        type="time"
+                        id="End_time"
+                        name="End_time"
+                        class="form-time-picker block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-center">
+          <button
+            type="submit"
+            class="text-white bg-button hover:bg-button-dark focus:ring-2 focus:outline-none focus:ring-button font-medium rounded-full text-sm w-full p-3 sm:w-auto px-5 py-2.5 text-center"
+          >
+            Save Change
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
